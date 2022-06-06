@@ -1,0 +1,9 @@
+node_modules/**
+dist/**
+
+docs/**
+public/**
+src/assets/**
+
+*.js
+*.json
