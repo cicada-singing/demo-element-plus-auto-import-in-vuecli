@@ -6,19 +6,18 @@ const Icons = require("unplugin-icons/webpack");
 const IconsResolver = require("unplugin-icons/resolver");
 const path = require("path");
 
-const cwd = process.cwd();
-
 module.exports = defineConfig({
+  transpileDependencies: true,
   configureWebpack: (config) => {
     config.plugins.push(
       ...[
         AutoImport({
           resolvers: [ElementPlusResolver()],
-          dts: path.resolve(cwd, "src/auto-imports.d.ts")
+          dts: path.resolve(process.cwd(), "src/auto-imports.d.ts")
         }),
         Components({
           resolvers: [ElementPlusResolver(), IconsResolver()],
-          dts: path.resolve(cwd, "src/components.d.ts")
+          dts: path.resolve(process.cwd(), "src/components.d.ts")
         }),
         Icons({
           autoInstall: true
